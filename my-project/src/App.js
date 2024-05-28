@@ -46,29 +46,29 @@ function App() {
     );
   });
 
-  //fucntion sort data
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? -1 : 1;
-    }
-    if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? 1 : -1;
-    }
-    return 0;
-  });
-
+  // Sort
   const handleSort = (key) => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
       direction = 'descending';
     }
     setSortConfig({ key, direction });
-
     if (sortCer.key === key && sortCer.direction === 'ascending') {
       direction = 'descending';
     }
     setSortCer({ key, direction });
   };
+
+  //fucntion sort data
+  const sortedData = [...filteredData].sort((a, b) => {
+    if (a[sortCer.key] < b[sortCer.key]) {
+      return sortCer.direction === 'ascending' ? -1 : 1;
+    }
+    if (a[sortCer.key] > b[sortCer.key]) {
+      return sortCer.direction === 'ascending' ? 1 : -1;
+    }
+    return 0;
+  });
 
   // Page 
   const totalPages = Math.ceil(sortedData.length / itemsPerPage);
@@ -164,10 +164,10 @@ function App() {
               <Table.HeaderCell>Course</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell onClick={() => handleSort('totalStudents')}>
-                Total Students <Icon name={sortConfig.direction === 'ascending' ? 'sort up' : 'sort down'} />
+                Total Students <Icon name={sortConfig.key === 'totalStudents' ? (sortConfig.direction === 'ascending' ? 'caret up' : 'caret down') : 'sort'} />
               </Table.HeaderCell>
               <Table.HeaderCell onClick={() => handleSort('totalCert')}>
-                Certificate <Icon name={sortCer.direction === 'ascending' ? 'sort up' : 'sort down'} />
+                Certificate <Icon name={sortCer.key === 'totalCert' ? (sortCer.direction === 'ascending' ? 'caret up' : 'caret down') : 'sort'} />
               </Table.HeaderCell>
             </Table.Header>
 
