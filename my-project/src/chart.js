@@ -14,8 +14,8 @@ const Chart = () => {
 
                 const transformedData = fetchedData.map(item => ({
                     name: item.call_User,
-                    value: item.user_enrole,
-                    value2: item.user_awarded
+                    value: item.user_enrole.toLocaleString(),
+                    value2: item.user_awarded.toLocaleString()
                 }));
 
                 setChartData(transformedData);

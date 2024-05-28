@@ -101,21 +101,21 @@ function App() {
           <div className='bg-white rounded-md border-2 text-center flex flex-col item-center justify-center'>
             <h2 className='text-xl text-gray-600 m-0'>จำนวนผู้เรียนในระบบ</h2>
             {data2.map(val =>
-              <p className='text-3xl font-bold text-gray-600'>{val.total_Learners} คน</p>
+              <p className='text-3xl font-bold text-gray-600'>{val.total_Learners.toLocaleString()} คน</p>
             )}
           </div>
 
           <div className='bg-white rounded-md border-2 text-center flex flex-col item-center justify-center'>
             <h2 className='text-xl text-gray-600 m-0'>Certificate ที่รับรองแล้ว</h2>
             {data2.map(val =>
-              <p className='text-3xl font-bold text-gray-600'>{val.total_Cert_By_All_Subject} ใบ</p>
+              <p className='text-3xl font-bold text-gray-600'>{val.total_Cert_By_All_Subject.toLocaleString()} ใบ</p>
             )}
           </div>
 
           <div className='bg-white rounded-md border-2 text-center flex flex-col item-center justify-center '>
             <h2 className='text-xl text-gray-600 m-0'>จำนวนการลงทะเบียนเรียน</h2>
             {data2.map(val =>
-              <p className='text-3xl font-bold text-gray-600'>{val.total_User_By_All_Subject} ครั้ง</p>
+              <p className='text-3xl font-bold text-gray-600'>{val.total_User_By_All_Subject.toLocaleString()} ครั้ง</p>
             )}
           </div>
 
@@ -176,8 +176,8 @@ function App() {
                 <Table.Row>
                   <Table.Cell>{val.course_Name}</Table.Cell>
                   <Table.Cell>{val.category_Name}</Table.Cell>
-                  <Table.Cell>{val.totalStudents} คน</Table.Cell>
-                  <Table.Cell>{val.totalCert} ใบ</Table.Cell>
+                  <Table.Cell>{val.totalStudents.toLocaleString()} คน</Table.Cell>
+                  <Table.Cell>{val.totalCert.toLocaleString()} ใบ</Table.Cell>
                 </Table.Row>
               )}
             </Table.Body>
