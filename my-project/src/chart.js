@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-
 const Chart = () => {
     const [chartData, setChartData] = useState([]);
 
@@ -13,7 +12,7 @@ const Chart = () => {
                 const fetchedData = response.data;
 
                 const transformedData = fetchedData.map(item => ({
-                    name: item.call_User,
+                    name: new Date(item.call_User).toLocaleDateString(),
                     value: item.user_enrole.toLocaleString(),
                     value2: item.user_awarded.toLocaleString()
                 }));
