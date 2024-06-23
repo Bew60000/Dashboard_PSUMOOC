@@ -61,11 +61,11 @@ function App() {
 
   //fucntion sort data
   const sortedData = [...filteredData].sort((a, b) => {
-    if (a[sortCer.key] < b[sortCer.key]) {
-      return sortCer.direction === 'ascending' ? -1 : 1;
+    if (a[sortConfig.key] > b[sortConfig.key]) {
+      return sortConfig.direction === 'descending' ? 1 : -1;
     }
-    if (a[sortCer.key] > b[sortCer.key]) {
-      return sortCer.direction === 'ascending' ? 1 : -1;
+    if (a[sortConfig.key] < b[sortConfig.key]) {
+      return sortConfig.direction === 'descending' ? -1 : 1;
     }
     return 0;
   });
