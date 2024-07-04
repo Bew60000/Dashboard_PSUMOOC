@@ -176,7 +176,10 @@ function App() {
                 <Table.Row>
                   <Table.Cell>{val.course_Name}</Table.Cell>
                   <Table.Cell>{val.category_Name}</Table.Cell>
-                  <Table.Cell>{val.totalStudents.toLocaleString()} คน</Table.Cell>
+                  <Table.Cell>
+                    {/* {val.totalStudents.toLocaleString()} คน */}
+                    {val.totalStudents !== undefined && val.totalStudents !== null ? val.totalStudents.toLocaleString() : '0'} คน
+                  </Table.Cell>
                   <Table.Cell>
                     {/* {val.totalCert.toLocaleString() } ใบ */}
                     {val.totalCert !== undefined && val.totalCert !== null ? val.totalCert.toLocaleString() : '0'} ใบ
